@@ -1,0 +1,7 @@
+name: kPadre-env
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python=3.8
+  - samtools
