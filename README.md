@@ -8,12 +8,12 @@ This repository contains a suite of tools for analyzing allele-specific genomic 
 - [Dependencies](#dependencies)
 - [Installation](#installation)
   
-# - [Usage](#usage)
-# - [Input/Output Format](#inputoutput-format)
-# - [Examples](#examples)
-# - [Contributing](#contributing)
-# - [License](#license)
-# - [Contact](#contact)
+- [Usage](#usage)
+- [Input/Output Format](#inputoutput-format)
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Features
 
@@ -38,5 +38,15 @@ cd k-Padre
 conda env create -f kPadre-env.yml
 conda activate kPadre-env
 ```
+## Usage
 
+## Inputoutput-format
+
+## examples
+
+## Contributing
+
+## License
+
+## contact
 
