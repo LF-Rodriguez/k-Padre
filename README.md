@@ -71,9 +71,11 @@ kPadre.py -singleGenome single_genome_alignment.sam snps.txt
 
 ## Inputoutput-format
 
-## examples
-
 ## License
 
-## contact
+This software is released under the MIT License. You are free to use, modify, and distribute it with proper attribution.
 
+**Disclaimer:** This tool is under active development and has not been extensively benchmarked or tested. Use at your own discretion, especially in production or clinical settings. Contributions and feedback are welcome to improve robustness and reproducibility.
+
+## contact
+lf.rdriguez027@gmail.com
