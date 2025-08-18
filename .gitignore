@@ -1,0 +1,22 @@
+# Ignore logs and temp files
+logs/
+*.log
+*.tmp
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore environment files
+.env
+.venv/
+*.egg-info/
+
+# Ignore cluster job outputs
+*.out
+*.err
+
+# Ignore data files
+data/*.sam
+data/*.bam
+data/*.fastq
