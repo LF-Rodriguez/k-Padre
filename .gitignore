@@ -16,7 +16,5 @@ __pycache__/
 *.out
 *.err
 
-# Ignore data files
-data/*.sam
-data/*.bam
-data/*.fastq
+# Ignore large data files
+data/variantCalls.vcf
