@@ -50,10 +50,10 @@ This pipeline compares two haplotypes to identify allele-specific signals.
 
 ```bash
 # Create diploid genome
-kPadre.py -mode createGenome genome_1.fa genome_2.fa suffix_1 suffix_2 > diploid_genome.fa
+kPadre.py createGenome -g1 genome_1.fa -g2 genome_2.fa -s1 suffix_1 -s2 suffix_2 > diploid_genome.fa
 
 # Run kPadre for diploid genome
-kPadre.py -mode twoGenomes diploid_genome_alignment.sam suffix_1 suffix_2
+kPadre.py twoGenomes -a diploid_genome_alignment.bam -s1 suffix_1 -s2 suffix_2
 
 ```
 
@@ -62,10 +62,10 @@ This pipeline uses known variants to one reference genome to assign allelic orig
 
 ```bash
 # Select reference variants from VCF file
-kPadre.py -mode selectSNPs genome_1.fa [-bs] variants.vcf > snp.txt
+kPadre.py selectSNPs [-bs] -v variants.vcf > snp.txt
 
 # Run kPadre for single genome
-kPadre.py -mode oneGenome single_genome_alignment.sam snps.txt
+kPadre.py oneGenome -a single_genome_alignment.sam -s snps.txt
 ```
 
 ## Inputoutput-format
