@@ -28,8 +28,8 @@ import glob
 
 # Add project root to Python path to import custom modules
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from src.sam_utils import *
-from src.io_utils import *
+from utils.sam_utils import *
+from utils.io_utils import *
 
 def classify_alignment(flag):
 	''' Clasifies alignment in three categories based on mate presence
@@ -346,7 +346,7 @@ def assign_genome(alignments, G1, G2):
 
     return assignment, nG1, nG2, nU
 
-def main():
+def main( filename, G1, G2):
 
 	# Catch wrong syntax
 	if len (sys.argv) < 4:
@@ -359,15 +359,11 @@ def main():
 	# Check for dependencies 
 	if shutil.which("samtools") is None:
 		sys.exit("Error: samtools is not installed or not in PATH. Please install it before running this script.")
-	
-	# obtain user arguments
-	filename = sys.argv[1]
-	G1 = sys.argv[2]
-	G2 = sys.argv[3]
 
 	base = os.path.basename(filename)
 	fname=re.sub(r'\.[bs]am$', '', base)
 
+	logging.info(f"{time_report()} running kPadre twoGenomes {filename} {G1} {G2}")
 	logging.info(f"{time_report()} Processing file: {filename}")
 
 	try:
@@ -401,5 +397,5 @@ def main():
 	except FileNotFoundError:
 		logging.info(f"Error: File '{filename}' not found.")
 
-if __name__ == "__main__":
-	main()
+def run(filename, G1, G2):
+	main(filename, G1, G2)
