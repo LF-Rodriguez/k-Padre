@@ -18,7 +18,7 @@
 import sys
 import argparse
 import os
-from protocols import kPadre_twoGenomes 
+from protocols import kPadre_twoGenomes, kPadre_selectSNPs, kPadre_createGenome
 
 # Add current location of master script
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -53,7 +53,8 @@ def getParsers():
 	genome_parser = subparsers.add_parser("selectSNPs", help = "Generate SNPs file")
 	genome_parser.add_argument("-v", required = True, metavar = "variants.vcf", help = "Path to VCF file with variants")
 	genome_parser.add_argument("-bs", required = False, action="store_true",
-		help = "include if processing bisulphite sequence data", )
+		help = "include if processing bisulphite sequence data"
+	)
 	
 	return parser
 
@@ -78,11 +79,7 @@ def main():
 		kPadre_createGenome.run(args.g1, args.g2, args.p1, args.p2)
 
 	elif args.mode == "selectSNPs":
-		if args.bisulfite: 
-			kPadre_selectSNPs.run(args.v, args.bs)
-
-		elif not args.bisulfite:
-			kPadre_selectSNs.run(args.vcf)
+		kPadre_selectSNPs.run(args.v, args.bs)
 
 	else:
 		sys.exit(0)

@@ -2,16 +2,14 @@
 
 ## %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ## 
-##                              k'Padre-DNA
+##                              kPadre twoGenomes 
 ##
 ##		This script parse a an alignment file containing reads
 ##		alignmed to a dipoloid genome and assigns genome of origin
-##		based on a thresshold difference in alignment score.
-##		
-##		kPadre_DNA.py alignment.sam sufix1 sufix 2
+##		based on a thresshold difference in alignment score.		
 ##
 ##		input: alignment to diploid genome (SAM / BAM)
-##		output read assignment table, problematec reads table
+##		output: read assignment table, problematec reads table
 ##
 ## %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -348,11 +346,6 @@ def assign_genome(alignments, G1, G2):
 
 def main( filename, G1, G2):
 
-	# Catch wrong syntax
-	if len (sys.argv) < 4:
-		print ("Usage: kPadre_RNA_idReads.py input.sam prefix1 prefix2")
-		sys.exit()
-
 	# Set loggin parameters
 	logging.basicConfig(level=logging.INFO, format='%(message)s')
 
@@ -397,5 +390,21 @@ def main( filename, G1, G2):
 	except FileNotFoundError:
 		logging.info(f"Error: File '{filename}' not found.")
 
+# Function for dispatcher kPadre.py
 def run(filename, G1, G2):
+	main(filename, G1, G2)
+
+# Run as stand alone
+if __name__ == "__main__":
+
+	# Catch wrong syntax
+	if len (sys.argv) < 4:
+		print ("Usage: kPadre_twoGenomes input.sam prefix1 prefix2")
+		sys.exit()
+
+	# Obtain positional arguments
+	filename = sys.argv[1]
+	G1 = sys.argv[2]
+	G2 = sys.argv[3]
+   	
 	main(filename, G1, G2)

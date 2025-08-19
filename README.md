@@ -28,7 +28,7 @@ relative from the reference assembly
 
 ## Dependencies
 
-This script requires [`samtools`](http://www.htslib.org/) to be installed. Samtools is included in the kPadre-env.yalm file for conda, but a custom installation can be used as long as samtools is in your system PATH.
+This script requires [`samtools`](http://www.htslib.org/) to be installed. A Conda environment with samtools can be created with the kPadre-env.yalm file, but a custom installation can be used as long as samtools is in your system PATH.
 
 ## Installation
 
@@ -50,14 +50,14 @@ This pipeline compares two haplotypes to identify allele-specific signals.
 
 ```bash
 # Create diploid genome
-kPadre.py createGenome -g1 genome_1.fa -g2 genome_2.fa -s1 suffix_1 -s2 suffix_2 > diploid_genome.fa
+kPadre.py createGenome -g1 genome_1.fa -g2 genome_2.fa -p1 preffix_1 -p2 prefix_2 > diploid_genome.fa
 
 # Run kPadre for diploid genome
-kPadre.py twoGenomes -a diploid_genome_alignment.bam -s1 suffix_1 -s2 suffix_2
+kPadre.py twoGenomes -a diploid_genome_alignment.bam -p1 preffix_1 -p2 prefix_2
 
 ```
 
-### Pipeline 2: SNP-based allelic assignment
+### Pipeline 2: SNP-based allelic assignment (UNDER DEVLOPMENT)
 This pipeline uses known variants to one reference genome to assign allelic origin
 
 ```bash
@@ -65,7 +65,7 @@ This pipeline uses known variants to one reference genome to assign allelic orig
 kPadre.py selectSNPs [-bs] -v variants.vcf > snp.txt
 
 # Run kPadre for single genome
-kPadre.py oneGenome -a single_genome_alignment.sam -s snps.txt
+kPadre.py oneGenome -a single_genome_alignment.bam -s snps.txt # (NOT YET AVAILABLE)
 ```
 
 ## Inputoutput-format
