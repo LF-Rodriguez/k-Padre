@@ -172,7 +172,7 @@ def parse_sam(filename):
 			flag = int(fields[1])
 			processed += 1
 
-			if not is_read_firstPair(flag):
+			if is_read_paired(flag) and not is_read_firstPair(flag):
 				continue
 
 			# Collect alignment information
@@ -293,7 +293,7 @@ def assign_genome(alignments, G1, G2):
                     assignment[read] += [(G2, maxG1, maxG2, chrG1, posG1, chrG2, posG2, 'SEHS')]
 
                 else:
-                    assignment[read] += [('undetermined', maxG1, maxG2, chrG1, posG1, chrG2, posG2, 'ES')]
+                    assignment[read] += [('undetermined', maxG1, maxG2, chrG1, posG1, chrG2, posG2, 'SEES')]
                     nU += 1
 
             # Sub-case 2-2: Mated alignment is present in only one genome
